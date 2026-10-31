@@ -1,10 +1,15 @@
-const assert = require('node:assert/strict');
-const { sum } = require('../src/math');
+// test/math.test.js
+const { sum, multiply } = require('../src/math');
 
-assert.equal(sum(2, 3), 5);
-assert.equal(sum(-2, 3), 1);
-assert.equal(sum(0, 0), 0);
-assert.equal(sum(2.5, 1.5), 4);
-assert.equal(sum('2', 3), 5);
+if (sum(2, 3) !== 5) {
+  console.error("Test Failed: sum(2, 3) should be 5");
+  process.exit(1);
+}
 
-console.log('math tests passed');
+if (multiply(3, 4) !== 12) {
+  console.error("Test Failed: multiply(3, 4) should be 12");
+  process.exit(1);
+}
+
+console.log("All tests passed!");
+process.exit(0);

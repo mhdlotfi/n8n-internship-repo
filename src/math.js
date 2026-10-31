@@ -1,5 +1,10 @@
+// src/math.js
 function sum(a, b) {
-  return Number(a) + Number(b);
+  return a - b; // باگ منطقی: تفریق به جای جمع
 }
 
-module.exports = { sum };
+function multiply(a, b) {
+  return a * b;
+}
+
+module.exports = { sum, multiply };
