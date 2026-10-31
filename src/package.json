@@ -2,7 +2,7 @@
   "name": "demo-agent-test",
   "version": "1.0.0",
   "scripts": {
-    "test": "node test/math.test.js",
+    "test": "node ../test/math.test.js",
     "build": "echo 'Build successful'"
   }
 }

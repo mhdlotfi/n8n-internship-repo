@@ -6,6 +6,21 @@ if (sum(2, 3) !== 5) {
   process.exit(1);
 }
 
+if (sum(0, 0) !== 0) {
+  console.error("Test Failed: sum(0, 0) should be 0");
+  process.exit(1);
+}
+
+if (sum(1.5, 2.5) !== 4) {
+  console.error("Test Failed: sum(1.5, 2.5) should be 4");
+  process.exit(1);
+}
+
+if (sum("2", "3") !== 5) {
+  console.error('Test Failed: sum("2", "3") should be 5');
+  process.exit(1);
+}
+
 if (multiply(3, 4) !== 12) {
   console.error("Test Failed: multiply(3, 4) should be 12");
   process.exit(1);
