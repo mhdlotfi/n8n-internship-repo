@@ -21,3 +21,24 @@ export function calculateSubtotal(items) {
     return subtotal + price * quantity;
   }, 0);
 }
+
+function roundMoney(amount) {
+  return Math.round((amount + Number.EPSILON) * 100) / 100;
+}
+
+export function calculateTotal(items, discountPercent = 0) {
+  if (
+    typeof discountPercent !== 'number' ||
+    !Number.isFinite(discountPercent) ||
+    discountPercent < 0 ||
+    discountPercent > 100
+  ) {
+    throw new TypeError('discountPercent must be a finite number between 0 and 100');
+  }
+
+  const subtotal = roundMoney(calculateSubtotal(items));
+  const discountAmount = roundMoney(subtotal * discountPercent / 100);
+  const total = roundMoney(subtotal - discountAmount);
+
+  return { subtotal, discountAmount, total };
+}
